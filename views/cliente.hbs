@@ -1,0 +1,198 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <title>Registro</title>
+
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"></a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Datos" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  </form>
+</nav>
+</head>
+<header>
+
+</header>
+
+<body>
+    <!-- Tabla de la BD -->
+    <div class="container p-4">
+        <h2><center>Clientes</center></h2>
+        <br>
+        <button class="btn btn-outline-success" data-toggle="modal" data-target="#myModalAdd" style="float: right;">Añadir</button>
+        <br>
+        <br> 
+        <table class="table table-striped" id="mytable">
+            <thead>
+            <tr>
+                <th> ID</th>
+                <th> Nombres</th>
+                <th> Apellidos</th>
+                <th> Número de contacto</th>
+                <th> Correo electrónico</th>                
+                <th> Administrar</th>
+            </tr>                
+            </thead>
+            <tbody>
+            {{#each results}}
+            <tr>
+                <td> {{ id_c }}</td>
+                <td> {{ nombre }}</td>
+                <td> {{ apellido }}</td>
+                <td> {{ telefono }}</td>
+                <td> {{ email }}</td>       
+                <td><a href="javascript:void(0);" class="btn btn-outline-info edit" data-id="{{id_c}}" data-nombre="{{nombre}}" data-apellido="{{apellido}}" data-telefono="{{telefono}}" data-email="{{email}}">Editar</a>
+                    <a href="javascript:void(0);" class="btn btn-outline-danger delete" data-id="{{id_c}}"> Borrar</a>   
+                </td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+   
+{{!-- Modal para agregar clientes--}}
+<form action="/save" method="post">
+    <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir cliente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+                </div>               
+                <div class="form-group">
+                    <input type="text" name="apellido" class="form-control" placeholder="Apellido" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="telefono" class="form-control" placeholder="Número de contacto" required>
+                </div>   
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+                </div>            
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+     </div>
+  </div>
+</form>
+
+{{!-- Modal para editar registros--}}
+<form action="/update" method="post">
+    <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Datos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" name="nombre" class="form-control nombre" placeholder="Nombre" required>
+                    </div>                   
+                    <div class="form-group">
+                        <input type="text" name="apellido" class="form-control apellido" placeholder="Apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="telefono" class="form-control telefono" placeholder="Número de contacto" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control email" placeholder="Correo electrónico" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id" class="id_c">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{{!-- Modal para eliminar registros--}} 
+<form id="add-row-form" action="/delete" method="post">
+    <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Baja de cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <strong>Si quiere dar de baja al cliente presione "Eliminar"</strong>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id_c" class="form-control id_c2" required> <!-- Se corrigió: name="id_c" -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>  
+
+
+<script src="/assets/js/jquery-3.3.1.js"></script> 
+<script src="/assets/js/bootstrap.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#mytable').on('click', '.edit', function (){
+            var id_c = $(this).data('id');
+            var nombre = $(this).data('nombre');
+            var apellido = $(this).data('apellido');
+            var telefono = $(this).data('telefono');
+            var email = $(this).data('email');
+            $('#EditModal').modal('show');
+            $('.nombre').val(nombre);
+            $('.apellido').val(apellido);
+            $('.telefono').val(telefono);
+            $('.email').val(email);
+            $('.id_c').val(id_c); 
+        });
+        $('#mytable').on('click', '.delete', function (){
+            var id_c = $(this).data('id');
+            $('#DeleteModal').modal('show');
+            $('.id_c2').val(id_c);
+        });
+    });
+</script>
+
+
+
+<footer>
+   <nav class="navbar" fixed-bottom navbar-light bg-light>
+ 
+ <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="./">Arriba</a>
+  </li>
+  
+</ul>
+
+</nav>
+</footer>
+</body>
+</html>
