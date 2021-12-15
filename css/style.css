@@ -1,0 +1,99 @@
+
+/*  
+Elimino márgenes
+ajusto el contenido con padding para que no toque los bordes
+con box-sizing mantengo los elems dentro del contenedor
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+/* Modifico el tipo de letra con el código de Google Fonts */
+
+body{
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* color navbar*/
+
+.miNavbar{
+    background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.miNavbar div, .miNavbar ul{
+    background-color: transparent ¡important!;
+    
+}
+
+/* Link ir arriba*/
+.arriba{
+    padding: .5px;    
+    box-sizing: border-box;
+    
+}
+
+/*Sección container redes sociales*/
+
+.seccion1{
+    padding: 2.5%;
+   
+}
+
+
+/* Botón contáctanos en página "Proyectos"*/    /** resolver responsive **/
+.estiloSeccion{   
+    padding: .5 px;
+    width: 200px;
+}
+
+/* Texto a la izquierda en el footer*/
+
+.seccion1 hr{  /* Estilo de línea */
+    border-top: 1px solid rgba(1, 1, 1, 0.3);
+}
+
+
+/* Íconos redes sociales*/
+.iconos{
+    padding: 20%;
+    position:absolute;
+}
+/* Posición del formulario. Página "Contacto" */
+
+.form-group{
+    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.col-md-9{
+
+    position: relative;
+  margin-top: -1px; 
+  margin-bottom: 25px;
+   clear:both;
+  width:100%;
+}
+
+
+.miFooter {
+    position: relative;
+  margin-top: -63px; 
+  margin-bottom: 20px;
+  height: 60px;
+  clear:both;
+  width:100%;
+    }
+
+    .botonContacto{
+            position: relative;  
+            padding: .5 px;
+            width: 200px;
+            margin-bottom: 23px;
+        }
+    

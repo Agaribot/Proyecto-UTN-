@@ -1,0 +1,131 @@
+/* Estilos de portada*/
+
+.miBanner{
+    height: 100vh; /* alto del contenedor */
+    background-attachment: fixed;  /* img. de fondo fija*/
+    background-position: center;   
+    background-repeat: no-repeat;
+    background-size: cover; /* tamaño original img.*/
+    background-image: url("../img/1.jpeg");
+
+}
+/* sombra de homepage*/
+
+.sombra{
+    position:absolute; /* para que sea flotante */
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%); /* espacio de recorrido */
+    -webkit-transform: translate(-50%, -50%); /* compatibilidad c/ navegadores */
+    transform:translate(-50%, -50%);
+    padding: 20px; /* contenido separado 20 ps del borde*/
+    width:80%; /* ancho del sombreado no anda */
+    text-align: center;
+    background-color: rgba(0,0,0, 0.6);
+    color:seashell;
+    margin: auto;
+}
+
+/* sombra del formulario de contacto*/
+
+.sombraForm{
+    position:absolute; /* para que sea flotante */
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%); /* espacio de recorrido */
+    -webkit-transform: translate(-50%, -50%); /* compatibilidad c/ navegadores */
+    transform:translate(-50%, -50%);
+    padding: .5px; /* contenido separado del borde*/
+    width:80%; /* ancho del sombreado no anda */
+    text-align: center;
+    background-color: rgba(0,0,0, 0.6);
+    color:seashell;
+    margin: auto;
+}
+
+/* línea blanca en la sombra*/
+.sombra hr{
+     border-top: 1px solid #fff;
+}
+
+/*variación del tamaño de letra según dispositivo */
+
+.sombra h1{
+    font-size: 8vw;
+    margin-bottom: 10px;
+}
+/* Tamaño para párrafos debajo de h1*/
+.sombra p{
+    font-size: 4vw;
+    margin-bottom: 10px;
+}
+/* Contenedor de los links*/
+.bannerLinkCont{
+    margin: 15px;
+    position: relative;
+}
+
+.bannerLinkCont a{
+    position:relative;
+    display: inline-block;
+    color:#fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 1px;
+    margin-bottom: 5px;
+    width: 150px;
+}
+
+.bannerLinkCont a:hover{
+background-color:rgb(148, 110, 110);
+color:seashell;
+}
+
+/*animación de los links*/
+
+.bannerLink{
+    opacity: 0;
+    animation: movimientoDesdeArriba 1s;
+    -webkit-animation: movimientoDesdeArriba 1s;
+    animation-fill-mode:forwards;
+}
+
+.bannerLink1{
+    opacity: 0;
+    animation: movimientoDesdeArriba 1s;
+    -webkit-animation: movimientoDesdeArriba 1s;
+    animation-fill-mode:forwards;
+    animation-delay: 0.5s;
+
+}
+
+.bannerLink2{
+    opacity: 0;
+    animation: movimientoDesdeArriba 1s;
+    -webkit-animation: movimientoDesdeArriba 1s;
+    animation-fill-mode:forwards;
+    animation-delay: 1s;
+}
+
+/*Encabezado de trabajos realizados*/
+.jumbotron{
+    background-color:rgba(227, 227, 236, 06);
+    color: white
+}
+
+/*Container de la galería de fotos*/
+
+.containerGaleria{
+    padding: 10px;
+    margin: 15px;
+    position: relative; 
+}
+
+/*Contenedor del footer */
+.containerFooter{
+    padding: 10px;
+    margin: 15px;
+    position: relative;
+
+
+}

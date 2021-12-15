@@ -1,0 +1,21 @@
+@keyframes movimientoDesdeArriba{
+    from{
+opacity: 0;
+top: -150px;
+    }
+    to{
+opacity: 1;
+top: 0;
+    }
+}
+
+@keyframes movimientoDesdeArriba {
+    from{
+        opacity: 0;
+        top: -150px;
+            }
+            to{
+        opacity: 1;
+        top: 0;
+            }
+}
